@@ -30,6 +30,8 @@ def solveODE():
     timeList = np.linspace(to, tf, 101).tolist()
     combined = zip(timeList,position)
     data = [{"x": k, "y": v} for (k,v) in combined]
-    return json.dumps(data)
+    completeData = {"finalCondition": {"x": values[100][0], "y": values[100][1]}, 
+                    "data": data}
+    return json.dumps(completeData)
 
 app.run()
